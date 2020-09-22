@@ -30,7 +30,9 @@ client.loadIdentity({
   // const openGroupName = 'chat-dev.lokinet.org'
   const openGroupName = 'session.lokisn.com'
 
-  await client.joinOpenGroup(openGroupName)
+  const openGroupData = await client.joinOpenGroup(openGroupName)
+
+  console.log('openGroupData', openGroupData);
 
   // handle incoming messages
   client.on('messages', msgs => {
@@ -75,9 +77,9 @@ client.loadIdentity({
     // attachments: [attachment]
   })
 
-  await client.deleteOpenGroupMessage(openGroupName, [28, 27, 26])
+  // await client.deleteOpenGroupMessage(openGroupData.id, [28, 27, 26])
 
-  //await client.sendOpenGroupMessage(openGroupName, 'Sample Open Group Message 1')
+  await client.sendOpenGroupMessage(openGroupData.id, 'Sample Open Group Message 2')
 
   // Open group invite example
   // only works on desktop

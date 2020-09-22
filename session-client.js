@@ -295,9 +295,11 @@ class SessionClient extends EventEmitter {
             // Exclude our own messages
             if (message.user.username !== this.ourPubkeyHex) {
               messages.push({
+                id: message.id,
                 openGroup: group.openGroup,
                 body: message.text,
                 profile: {
+                  id: message.user.id,
                   displayName: message.user.name,
                   avatar: message.user.avatar_image.url,
                 },
